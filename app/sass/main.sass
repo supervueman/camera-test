@@ -1,0 +1,277 @@
+@import "fonts"
+@import "vars"
+@import "grid"
+@import "preloader"
+@import "base"
+@import "_mixins/btns"
+@import "_mixins/links"
+@import "_mixins/icons"
+@import "resets"
+@import "btn_forms_elem"
+@import "titles"
+@import "fixed"
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700')
+
+.cont
+	display: flex
+	width: 100%
+	justify-content: space-around
+
+//Slider default style
+.item
+	width: 100%
+	padding: 10px
+	opacity: 0
+	transition: 1s
+.inner
+	width: 100%
+	height: 100px
+	border: $bord-l
+	color: $l
+	text-align: center
+	padding: 10px
+	font-size: 30px
+	font-weight: bold
+	display: flex
+	justify-content: center
+	align-items: center
+	background-size: cover
+	transition: 0.5s
+
+.control
+	cursor: pointer
+	position: absolute
+	top: 0
+	bottom: 0
+	margin: auto
+	z-index: 300
+	transition: 0.5s
+	&:hover
+		transform: scale(1.2)
+.prev
+	left: -40px
+.next
+	right: -40px
+
+.slider-dots
+	position: absolute
+	bottom: -30px
+	width: 100%
+	left: 0
+	display: flex
+	justify-content: center
+	align-items: center
+	transition: 0.5s
+.dot
+	width: 6px
+	height: 6px
+	background-color: $l
+	margin: 0 10px
+	border-radius: 20px
+	cursor: pointer
+	transition: 0.2s
+	&:hover
+		width: 10px
+		height: 10px
+.dot-active
+	width: 10px
+	height: 10px
+	justify-content: space-around
+	align-items: center
+
+.filter
+	display: flex
+	justify-content: space-around
+	align-items: center
+	width: 80%
+	padding-top: 30px
+.filter-link
+	color: $l
+	font-size: 24px
+	transition: 0.5s
+	position: relative
+	&::before,&::after
+		content: ''
+		position: absolute
+		top: 4px
+		bottom: 0
+		left: 0
+		margin: auto
+		width: 100%
+		height: 3px
+		background-color: $l
+		transition: 0.5s
+	&:hover
+		&::before,&::after
+			left: -30px
+			width: 20px
+			height: 1px
+.filter-active
+	&::before,&::after
+		left: -30px
+		width: 20px
+		height: 1px
+
+.slider-rebuild
+	.slider-preload
+		opacity: 1
+	.preload-inner
+		width: 100%
+	.slide-line
+		opacity: 0
+.slider-preload
+	position: absolute
+	top: 0
+	bottom: 0
+	left: 0
+	right: 0
+	margin: auto
+	width: 60%
+	height: 100%
+	background-color: $d
+	opacity: 0
+	border-radius: 10px
+	display: flex
+	justify-content: center
+	align-items: center
+.preload-inner
+	width: 0
+	height: 1px
+	background-color: $l
+	transition: 0.9s
+
+video
+  width: 100%
+  border: 2px solid $l
+  border-radius: 10px
+  //filter: blur(2px)
+  transition: 0.5s
+.video
+  position: relative
+  &::after
+    //content: ''
+    position: absolute
+    z-index: 999
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    background-color: $d
+    opacity: 0.5
+
+.battery
+  width: 200px
+  height: 50px
+  margin: auto
+  border: 2px solid $l
+  border-radius: 5px
+  position: relative
+  margin-bottom: 30px
+  .inner-battery
+    height: 100%
+    width: 0
+    background-color: green
+    transition: 0.5s
+
+.fa-bolt
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  margin: auto
+  opacity: 0
+  transition: 0.5s
+
+/////////////////
+
+h3
+  color: #2c3e50
+  margin: 50px 0
+  text-align: center
+.container
+  max-width: 1000px
+  margin: 50px auto
+  padding: 20px
+  background-color: #efefef
+.app
+  width: 100%
+  position: relative
+#start-camera
+  display: none
+  border-radius: 3px
+  max-width: 400px
+  color: #fff
+  background-color: #448AFF
+  text-decoration: none
+  padding: 15px
+  opacity: 0.8
+  margin: 50px auto
+  text-align: center
+#camera-stream
+  display: none
+  width: 100%
+#snap
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  width: 90%
+  z-index: 10
+  margin: auto
+  border: 2px solid $l
+  border-radius: 5px
+  display: none
+#error-message
+  width: 100%
+  background-color: #ccc
+  color: #9b9b9b
+  font-size: 28px
+  padding: 200px 100px
+  text-align: center
+  display: none
+.controls
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  z-index: 20
+  display: flex
+  align-items: flex-end
+  justify-content: space-between
+  padding: 30px
+  display: none
+.controls a
+  border-radius: 50%
+  color: #fff
+  background-color: #111
+  text-decoration: none
+  padding: 15px
+  line-height: 0
+  opacity: 0.7
+  outline: none
+  -webkit-tap-highlight-color: transparent
+.controls a:hover
+  opacity: 1
+.controls a.disabled
+  background-color: #555
+  opacity: 0.5
+  cursor: default
+  pointer-events: none
+.controls a.disabled:hover
+  opacity: 0.5
+.controls a i
+  font-size: 18px
+.controls #take-photo i
+  font-size: 32px
+canvas
+  display: none
+.visible
+  display: block!important
+.controls.visible
+  display: flex!important
+
+@import "anim"
+@import "media"
